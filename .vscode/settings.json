@@ -1,3 +1,9 @@
 {
-  "cSpell.ignoreWords": ["Nucamp", "backcountry", "nucampsite"]
+  "cSpell.ignoreWords": [
+    "Nucamp",
+    "backcountry",
+    "datetimepicker",
+    "nucampsite",
+    "reduxjs"
+  ]
 }
