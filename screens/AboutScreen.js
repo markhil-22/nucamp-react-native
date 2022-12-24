@@ -3,6 +3,7 @@ import { Card, ListItem, Avatar, Text } from 'react-native-elements';
 import { useSelector } from 'react-redux';
 import { baseUrl } from '../shared/baseUrl';
 import Loading from '../components/LoadingComponent';
+import * as Animatable from 'react-native-animatable';
 
 const Mission = () => {
   return (
@@ -28,12 +29,14 @@ const AboutScreen = () => {
   if (partners.isLoading) {
     return (
       <ScrollView>
-        <Mission />
-        <Card>
-          <Card.Title>Community Partners</Card.Title>
-          <Card.Divider />
-          <Loading />
-        </Card>
+        <Animatable.View animation='fadeInDown' duration={2000} delay={1000}>
+          <Mission />
+          <Card>
+            <Card.Title>Community Partners</Card.Title>
+            <Card.Divider />
+            <Loading />
+          </Card>
+        </Animatable.View>
       </ScrollView>
     );
   }
@@ -52,23 +55,25 @@ const AboutScreen = () => {
 
   return (
     <ScrollView>
-      <Mission />
-      <Card>
-        <Card.Title>Community Partners</Card.Title>
-        <Card.Divider />
-        {partners.partnersArray.map((partner) => {
-          const { id, image, name, description } = partner;
-          return (
-            <ListItem key={id}>
-              <Avatar source={{ uri: baseUrl + image }} rounded />
-              <ListItem.Content>
-                <ListItem.Title>{name}</ListItem.Title>
-                <ListItem.Subtitle>{description}</ListItem.Subtitle>
-              </ListItem.Content>
-            </ListItem>
-          );
-        })}
-      </Card>
+      <Animatable.View animation='fadeInDown' duration={2000} delay={1000}>
+        <Mission />
+        <Card>
+          <Card.Title>Community Partners</Card.Title>
+          <Card.Divider />
+          {partners.partnersArray.map((partner) => {
+            const { id, image, name, description } = partner;
+            return (
+              <ListItem key={id}>
+                <Avatar source={{ uri: baseUrl + image }} rounded />
+                <ListItem.Content>
+                  <ListItem.Title>{name}</ListItem.Title>
+                  <ListItem.Subtitle>{description}</ListItem.Subtitle>
+                </ListItem.Content>
+              </ListItem>
+            );
+          })}
+        </Card>
+      </Animatable.View>
     </ScrollView>
   );
 };

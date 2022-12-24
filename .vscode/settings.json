@@ -4,6 +4,7 @@
     "backcountry",
     "datetimepicker",
     "nucampsite",
+    "persistor",
     "reduxjs"
   ]
 }
